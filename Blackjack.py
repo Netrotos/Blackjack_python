@@ -58,17 +58,16 @@ while balance > 0:
             balance-= (.5 * bet)
             break
 
-    elif pv==21 and dv!=21:
+    elif (vpc1+vpc2)==21 and (vkdc+vudc)!=21:
         print ("Blackjack!")
-        balance += 1.5 * bet
+        balance += 0.5 * bet
         break
     
-    elif pv == dv==21:
+    elif (vpc1+vpc2) == (vkdc+vudc)==21:
         print ("Tie!")
-        balance+=bet
         break
     
-    elif pv!=21 and dv==21:
+    elif (vpc1+vpc2)!=21 and (vkdc+vudc)==21:
         print ("Player lost!")
         balance -= 0.5 * bet
         break
@@ -102,10 +101,12 @@ while balance > 0:
                 print("Tie!")
             elif pv > 21:
                 print ("Player Bust!")
-                balance-=bet
+                balance-= 2 * bet
             elif (dv>pv and pv <= 21 and dv <= 21):
                 print("Player lost!")
-                balance-=bet
+                balance-= 2 * bet
+            elif pv == dv:
+                print("Tie!")
             elif (dv<pv and pv <= 21 and dv <= 21):
                 print("Player won!")
                 balance+= 2 * bet
@@ -125,15 +126,17 @@ while balance > 0:
             elif pv > 21:
                 print ("Player Bust!")
                 balance-=bet
+            elif pv == dv:
+                print("Tie!")
             elif (dv>pv and pv <= 21 and dv <= 21):
                 print("Player lost!")
                 balance-=bet
             elif (dv<pv and pv <= 21 and dv <= 21):
                 print("Player won!")
-                balance+= 2 * bet
+                balance+= bet
             elif dv>21:
                 print ("Dealer Bust!")
-                balance+= 2 * bet
+                balance+= bet
             break
 
         else:
