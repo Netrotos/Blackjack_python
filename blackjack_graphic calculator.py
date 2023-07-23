@@ -23,7 +23,7 @@ def dealercard_value(card):
         return int(card.split()[0])
 
 while balance > 0:
-    print("\n\nYour balance is: ", balance)
+    print("\nYour balance is: ", balance)
     bet = int(input("Input bet: "))
     if bet > balance or bet <= 0:
         bet = int(input("Input bet: "))
@@ -47,7 +47,7 @@ while balance > 0:
     dv = vkdc + vudc
 
     if kdc == "A":
-        surrender = int(input("ff and -1/2 bet?\n0 - no, 1 - yes\n"))
+        surrender = int(input("ff and (-1/2) bet?\n0 - no, 1 - yes\n"))
         while surrender != 0 and surrender != 1:
             print("Input valid answer")
             surrender = int(input("ff and -1/2 bet?\n0 - no, 1 - yes\n"))
