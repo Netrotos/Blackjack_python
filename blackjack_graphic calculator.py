@@ -10,7 +10,11 @@ def card_value(card):
     if card[0] in ["J", "Q", "K"]:
         return 10
     elif card[0] == "A":
-        return int(input("A value (1/11): "))
+        av = int(input("A value (1/11): "))
+        while av!=1 and av!=11:
+            av = int(input("A value (1/11): "))
+        else:
+            return av
     else:
         return int(card.split()[0])
 
@@ -43,8 +47,6 @@ while balance > 0:
     vkdc = dealercard_value(kdc)
     vudc = dealercard_value(udc)
         
-    pv = vpc1 + vpc2
-    dv = vkdc + vudc
 
     if kdc == "A":
         surrender = int(input("ff and (-1/2) bet?\n0 - no, 1 - yes\n"))
@@ -53,22 +55,25 @@ while balance > 0:
             surrender = int(input("ff and -1/2 bet?\n0 - no, 1 - yes\n"))
         if surrender == 1:
             balance -= (0.5 * bet)
-            break
+            continue
 
-    elif (vpc1 + vpc2) == 21 and (vkdc + vudc) != 21:
+    pv = vpc1 + vpc2
+    dv = vkdc + vudc
+    
+    if (vpc1 + vpc2) == 21 and (vkdc + vudc) != 21:
         print("Blackjack!")
         balance += 0.5 * bet
-        break
+        continue
     
     elif (vpc1 + vpc2) == (vkdc + vudc) == 21:
         print("Tie!")
-        break
+        continue
     
     elif (vpc1 + vpc2) != 21 and (vkdc + vudc) == 21:
         print("Player lost!")
         balance -= 0.5 * bet
-        break
-
+        continue
+        
     while True:
         play = int(input("1 - Hit\n2 - Double Down\n3 - Stand\n"))
     
