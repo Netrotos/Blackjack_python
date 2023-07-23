@@ -52,17 +52,16 @@ def play_blackjack(balance):
                 balance -= 0.5 * bet
                 break
 
-        elif pv == 21 and dv != 21:
+        elif (vpc1 + vpc2) == 21 and (vkdc + vudc) != 21:
             print("Blackjack!")
-            balance += 1.5 * bet
+            balance += 0.5 * bet
             break
 
-        elif pv == dv == 21:
+        elif (vpc1 + vpc2) == (vkdc + vudc) == 21:
             print("Tie!")
-            balance += bet
             break
 
-        elif pv != 21 and dv == 21:
+        elif (vpc1 + vpc2) != 21 and (vkdc + vudc) == 21:
             print("Player lost!")
             balance -= 0.5 * bet
             break
@@ -87,7 +86,6 @@ def play_blackjack(balance):
                     print("Doubled your bet!")
                     print("New card:", npc2)
                     pv += card_value(npc2)
-                    bet += bet
                     print("Dealer card revealed:", udc)
                     while dv <= 16:
                         dpc = random.choice(cards)
@@ -99,16 +97,15 @@ def play_blackjack(balance):
                         balance += 2 * bet
                     elif pv > 21:
                         print("Player Bust!")
-                        balance -= bet
+                        balance -= 2 * bet
                     elif dv > pv:
                         print("Player lost!")
-                        balance -= bet
+                        balance -= 2 * bet
                     elif dv < pv:
                         print("Player won!")
                         balance += 2 * bet
                     elif dv == pv:
                         print("Tie!")
-                        balance += bet
                     break
 
             elif play == 3:
@@ -120,7 +117,7 @@ def play_blackjack(balance):
 
                 if dv > 21:
                     print("Dealer Bust!")
-                    balance += 2 * bet
+                    balance += bet
                 elif pv > 21:
                     print("Player Bust!")
                     balance -= bet
@@ -129,10 +126,9 @@ def play_blackjack(balance):
                     balance -= bet
                 elif dv < pv:
                     print("Player won!")
-                    balance += 2 * bet
+                    balance += bet
                 elif dv == pv:
                     print("Tie!")
-                    balance += bet
                 break
 
             else:
