@@ -82,32 +82,32 @@ while balance > 0:
                 if balance < (2 * bet):
                     print("Balance not enough!")
                 else:
-            npc2 = random.choice(cards)
-            print("* 2 your bet!")
-            print("New card: ", npc2)
-            pv += card_value(npc2)
-            print("Dealer card: ", udc)
-            while dv <= 16:
-                dpc = random.choice(cards)
-                print("New d card: ", dpc)
-                dv += dealercard_value(dpc)
-            if dv > 21 and pv > 21:
-                print("Tie!")
-            elif pv > 21:
-                print("Player Bust!")
-                balance -= (2 * bet)
-            elif pv == dv:
-                print("Tie!")
-            elif dv > pv and pv <= 21 and dv <= 21:
-                print("Player lost!")
-                balance -= (2 * bet)
-            elif dv < pv and pv <= 21 and dv <= 21:
-                print("Player won!")
-                balance += (2 * bet)
-            elif dv > 21:
-                print("Dealer Bust!")
-                balance += (2 * bet)
-            break
+                    npc2 = random.choice(cards)
+                    print("* 2 your bet!")
+                    print("New card: ", npc2)
+                    pv += card_value(npc2)
+                    print("Dealer card: ", udc)
+                    while dv <= 16:
+                        dpc = random.choice(cards)
+                        print("New d card: ", dpc)
+                        dv += dealercard_value(dpc)
+                    if dv > 21 and pv > 21:
+                        print("Tie!")
+                    elif pv > 21:
+                        print("Player Bust!")
+                        balance -= (2 * bet)
+                    elif pv == dv:
+                        print("Tie!")
+                    elif dv > pv and pv <= 21 and dv <= 21:
+                        print("Player lost!")
+                        balance -= (2 * bet)
+                    elif dv < pv and pv <= 21 and dv <= 21:
+                        print("Player won!")
+                        balance += (2 * bet)
+                    elif dv > 21:
+                        print("Dealer Bust!")
+                        balance += (2 * bet)
+                    break
 
         elif play == 3:
             print("Dealer card: ", udc)
